@@ -6,4 +6,8 @@
     <RootNamespace>Assessment_Fundamentos</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Gerenciador de Aniversario\Gerenciador de Aniversario.csproj" />
+  </ItemGroup>
+
 </Project>
