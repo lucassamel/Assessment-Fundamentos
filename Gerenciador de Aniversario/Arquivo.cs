@@ -99,5 +99,28 @@ namespace Gerenciador_de_Aniversario
 
         }
 
+        public void AtualizarPessoa()
+        {
+            List<Pessoa> lista = ListarDados();
+            Console.WriteLine("Escolha uma pessoa para ser atualizada: ");
+            string esccolha = Console.ReadLine();
+            int i = Int32.Parse(esccolha);
+            Console.Write("Digite um novo nome: ");
+            lista[i].Nome = Console.ReadLine();
+            Console.Write("Digite um novo sobrenome: ");
+            lista[i].Sobrenome = Console.ReadLine();
+            Console.Write("Digite uma nova data de aniversario no formato (dd/mm/aaaa): ");
+            string novoAniversario = Console.ReadLine();           
+            DateTime aniversario = Convert.ToDateTime(novoAniversario);
+            lista[i].Aniversario = aniversario;
+
+            SobrescreverDados(lista);
+            Console.WriteLine("Dados atualizados com sucesso!");
+            Console.WriteLine("--------------------");
+
+
+
+        }
+
     }
 }

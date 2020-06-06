@@ -60,7 +60,7 @@ namespace Assessment_Fundamentos
                 }
                 else if (opcao == "4")
                 {
-
+                    arquivo.AtualizarPessoa();
                 }
                 else if(opcao == "5")
                 {
