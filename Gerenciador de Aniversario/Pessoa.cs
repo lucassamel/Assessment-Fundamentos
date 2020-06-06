@@ -28,6 +28,8 @@ namespace Gerenciador_de_Aniversario
         {
             List<Pessoa> resultQuery = lista.Where(x => x.Nome.Contains(encontrar)).ToList();
 
+
+
             return resultQuery;
         }
 
@@ -39,6 +41,19 @@ namespace Gerenciador_de_Aniversario
             double dias = DateTime.Now.Date.Subtract(niver).TotalDays;
 
             return dias;
+        }
+
+        public void NiverHoje(List<Pessoa> lista)
+        {
+            foreach (Pessoa pessoa in lista)
+            {
+                if (pessoa.Aniversario.Date == DateTime.Now.Date)
+                {
+                   Console.WriteLine(pessoa.Nome + " " + pessoa.Sobrenome + " Faz Aniversário Hoje!!!");
+                }
+
+            }
+            
         }
 
     }
