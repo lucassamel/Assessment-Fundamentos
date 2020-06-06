@@ -42,6 +42,22 @@ namespace Gerenciador_de_Aniversario
             
         }
 
+        public void SobrescreverDados(List<Pessoa> lista)
+        {
+            File.Delete(arquivo);
+
+            CriarArquivo();
+
+            using (StreamWriter fs = File.AppendText(arquivo))
+            {
+                foreach(Pessoa pessoa in lista)
+                {
+                    fs.WriteLine(string.Format("{0};{1};{2}", pessoa.Nome, pessoa.Sobrenome, pessoa.Aniversario));
+                }
+                
+            }            
+        }
+
         public List<Pessoa> ListarDados()
         {
             List<Pessoa> lista = new List<Pessoa>();
@@ -75,12 +91,11 @@ namespace Gerenciador_de_Aniversario
             List<Pessoa> lista = ListarDados();
             Console.WriteLine("Escolha uma pessoa para ser deletada: ");
             string escolha = Console.ReadLine();
-            int i = Int32.Parse(escolha);
-
-            lista.Remove(i);
-
-            var itemToRemove = lista.Single(r => r. == i);
-            lista.Remove(itemToRemove);
+            int i = Int32.Parse(escolha);            
+            lista.Remove(lista[i]);
+            Console.WriteLine("Pessoa removida com sucesso!!!");
+            Console.WriteLine("----------------------------");
+            SobrescreverDados(lista);           
 
         }
 
